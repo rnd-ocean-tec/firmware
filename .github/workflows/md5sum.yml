@@ -1,4 +1,4 @@
-name: Generate MD5 Checksum
+name: Generate MD5 Checksum and Move Files
 
 on:
   push:
@@ -13,22 +13,31 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Generate MD5 checksum
+      # Step 2: Move `firmware.bin` to the root
+      - name: Move firmware.bin to the root
+        run: |
+          if [ -f esp32-s3-devkitm-1/firmware.bin ]; then
+            mv esp32-s3-devkitm-1/firmware.bin .
+          else
+            echo "firmware.bin not found in esp32-s3-devkitm-1 directory!"
+            exit 1
+          fi
+
+      # Step 3: Generate MD5 checksum
       - name: Generate MD5 checksum
         run: |
           if [ -f firmware.bin ]; then
             md5sum firmware.bin > firmware.md5
           else
-            echo "firmware.bin not found!"
+            echo "firmware.bin not found in the root directory!"
             exit 1
           fi
 
-      # Step 3: Commit `firmware.md5` back to the repository
-      - name: Commit and push MD5 checksum
+      # Step 4: Commit and push changes
+      - name: Commit and push firmware.bin and firmware.md5
         run: |
           git config user.name "GitHub Actions"
           git config user.email "actions@github.com"
-          git add firmware.md5
-          git commit -m "Update firmware.md5 checksum"
+          git add firmware.bin firmware.md5
+          git commit -m "Move firmware.bin and generate firmware.md5"
           git push
-
