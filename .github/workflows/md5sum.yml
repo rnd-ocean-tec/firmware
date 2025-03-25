@@ -1,0 +1,33 @@
+name: Generate MD5 Checksum
+
+on:
+  push:
+    branches:
+      - main  # Trigger on pushes to the main branch
+
+jobs:
+  generate-md5:
+    runs-on: ubuntu-latest
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Generate MD5 checksum
+      - name: Generate MD5 checksum
+        run: |
+          if [ -f firmware.bin ]; then
+            md5sum firmware.bin > firmware.md5
+          else
+            echo "firmware.bin not found!"
+            exit 1
+          fi
+
+      # Step 3: Commit `firmware.md5` back to the repository
+      - name: Commit and push MD5 checksum
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+          git add firmware.md5
+          git commit -m "Update firmware.md5 checksum"
+          git push
