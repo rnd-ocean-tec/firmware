@@ -1,7 +1,8 @@
 {
   "version": "0.1.7",
-  "build_date": "2025-08-07T09:31:59Z",
-  "description": "Critical NimBLE BLE stack overflow fix",
-  "firmware_size": 693616,
-  "md5_checksum": "24447d8799397023faeddbb4b4c8ea06"
+  "build_date": "2025-08-07T09:36:09Z",
+  "build_environment": "esp32-s3-devkitm-1",
+  "size_bytes": 693616,
+  "md5_checksum": "24447d8799397023faeddbb4b4c8ea06",
+  "git_commit": "1462ffdbe89d8c5211b1be6220e3081117276ccd"
 }
