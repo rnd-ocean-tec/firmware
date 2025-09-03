@@ -1,7 +1,8 @@
 {
-  "version": "0.1.8",
-  "build_date": "2025-08-18T11:11:45Z",
-  "description": "UART buffer overflow fix and water sensor highest priority safety",
-  "firmware_size": 693616,
-  "md5_checksum": "c770e2dddc1ce02fa47dc94ad1c8e6ee"
+  "version": "0.1.9",
+  "build_date": "2025-09-03T11:30:17Z",
+  "build_environment": "esp32-s3-devkitm-1",
+  "size_bytes": 695952,
+  "md5_checksum": "cc88a1a791837c45ce1afe1012d779b7",
+  "git_commit": "d2e1be28052ecbb14478d1965f9b2cca407d2faf"
 }
