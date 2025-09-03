@@ -1,8 +1,8 @@
 {
-  "version": "0.1.9",
-  "build_date": "2025-09-03T11:30:17Z",
+  "version": "0.1.10",
+  "build_date": "2025-09-03T14:06:02Z",
   "build_environment": "esp32-s3-devkitm-1",
-  "size_bytes": 695952,
-  "md5_checksum": "cc88a1a791837c45ce1afe1012d779b7",
-  "git_commit": "d2e1be28052ecbb14478d1965f9b2cca407d2faf"
+  "size_bytes": 695920,
+  "md5_checksum": "ddb9dabb12e68ba2d8d309d4299fb0a2",
+  "git_commit": "9c076d3026dfab5b3fcd10d5ee844b20b50c3552"
 }
